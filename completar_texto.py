@@ -98,6 +98,12 @@ def verifica (palavra, texto, resposta, lacunas):
         # Solicitando resposta do usuario
         troca = raw_input("A palavra " + palavra + "é: ")
         # Loop para solicitar nova resposta em caso de erro
+        while len(troca) != len(resposta[lacunas-1]):
+            print """
+Tente novamente, você errou :/
+            """
+            print texto
+            troca = raw_input("A palavra " + palavra + "é: ")
         while troca not in resposta[lacunas-1]: # -1 porque o numero de lacunas começa em 1 e o python em 0
             print """
 Tente novamente, você errou :/
