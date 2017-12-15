@@ -98,13 +98,7 @@ def verifica (palavra, texto, resposta, lacunas):
         # Solicitando resposta do usuario
         troca = raw_input("A palavra " + palavra + "é: ")
         # Loop para solicitar nova resposta em caso de erro
-        while len(troca) != len(resposta[lacunas-1]):
-            print """
-Tente novamente, você errou :/
-            """
-            print texto
-            troca = raw_input("A palavra " + palavra + "é: ")
-        while troca not in resposta[lacunas-1]: # -1 porque o numero de lacunas começa em 1 e o python em 0
+        while troca != resposta[lacunas-1]: # -1 porque o numero de lacunas começa em 1 e o python em 0
             print """
 Tente novamente, você errou :/
             """
@@ -144,7 +138,7 @@ Você consegue de completar as frases corretamente?
     resp = respostas[nivel_escolhido]
     texto = textos[nivel_escolhido]
 
-    #Print do texto escolhido pelo usuario
+    # Print do texto escolhido pelo usuario
     print """
 O jogo começou!
 
